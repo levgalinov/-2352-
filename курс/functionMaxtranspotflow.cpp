@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Maxtarnsportflow.h"
 
 
 Graph::Graph(int V) {
@@ -94,6 +94,6 @@ void readGraphFromFile(const std::string& filename, Graph& graph) {
 
 void writeResultToFile(const std::string& filename, int maxFlow) {
     std::ofstream out(filename);
-    out << "Ìàêñèìàëüíûé ïîòîê: " << maxFlow << std::endl;
+    out << "ÃŒÃ ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã© Ã¯Ã®Ã²Ã®Ãª: " << maxFlow << std::endl;
     out.close();
 }
