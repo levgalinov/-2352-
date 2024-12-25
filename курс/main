@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Header.h"
+#include "Maxtarnsportflow.h"
 
 int main(int argc, char* argv[]) {
     setlocale(LC_ALL, "Russian");
@@ -14,9 +14,9 @@ int main(int argc, char* argv[]) {
     std::string outputFilename = "output.txt";
 
     int source, sink;
-    std::cout << "Ââåäèòå èñõîäíóþ âåðøèíó: ";
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã³Ã¾ Ã¢Ã¥Ã°Ã¸Ã¨Ã­Ã³: ";
     std::cin >> source;
-    std::cout << "Ââåäèòå ñòîêîâóþ âåðøèíó: ";
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã±Ã²Ã®ÃªÃ®Ã¢Ã³Ã¾ Ã¢Ã¥Ã°Ã¸Ã¨Ã­Ã³: ";
     std::cin >> sink;
 
     Graph graph(0);
