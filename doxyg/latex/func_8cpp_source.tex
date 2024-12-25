@@ -1,0 +1,103 @@
+\doxysection{func.\+cpp}
+\hypertarget{func_8cpp_source}{}\label{func_8cpp_source}\mbox{\hyperlink{func_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_header_8h}{Header.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00008}\mbox{\hyperlink{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915}{00008}}\ \mbox{\hyperlink{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915}{Graph::Graph}}(\textcolor{keywordtype}{int}\ V)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00009}00009\ \ \ \ \ this-\/>V\ =\ \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}};}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}}.resize(\mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}},\ std::vector<int>(\mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}},\ 0));\ \textcolor{comment}{//\ Initialization\ of\ the\ capacity\ matrix}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}}.resize(\mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}},\ std::vector<int>(\mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}},\ 0));\ \ \ \ \ \textcolor{comment}{//\ Initialization\ of\ the\ flow\ matrix}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00021}\mbox{\hyperlink{class_graph_a8cdfb932968807565b3cc3b52759e3b8}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_graph_a8cdfb932968807565b3cc3b52759e3b8}{Graph::addEdge}}(\textcolor{keywordtype}{int}\ u,\ \textcolor{keywordtype}{int}\ v,\ \textcolor{keywordtype}{int}\ cap)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}}[u][v]\ +=\ cap;\ \textcolor{comment}{//\ adding\ rib\ capacity}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00033}\mbox{\hyperlink{class_graph_a692d5e808eef1b5ec9db213a42b502e5}{00033}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_graph_a692d5e808eef1b5ec9db213a42b502e5}{Graph::bfs}}(\textcolor{keywordtype}{int}\ source,\ \textcolor{keywordtype}{int}\ sink,\ std::vector<int>\&\ parent)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00034}00034\ \ \ \ \ std::vector<bool>\ visited(\mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}},\ \textcolor{keyword}{false});\ \textcolor{comment}{//\ Array\ for\ tracking\ visited\ vertices}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00035}00035\ \ \ \ \ std::queue<int>\ q;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00036}00036\ \ \ \ \ q.push(source);}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00037}00037\ \ \ \ \ visited[source]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00038}00038\ \ \ \ \ parent[source]\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{while}\ (!q.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ q.front();}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ go\ along\ all\ the\ edges\ from\ the\ vertex\ u}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ =\ 0;\ v\ <\ \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}};\ v++)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ vertex\ has\ not\ yet\ been\ visited\ and\ there\ is\ residual\ capacity}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited[v]\ \&\&\ \mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}}[u][v]\ -\/\ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}}[u][v]\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(v);}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ visited[v]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[v]\ =\ u;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ ==\ sink)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00065}\mbox{\hyperlink{class_graph_afd2749a1cd58db2d3b6fa6eef639399c}{00065}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_graph_afd2749a1cd58db2d3b6fa6eef639399c}{Graph::edmondsKarp}}(\textcolor{keywordtype}{int}\ source,\ \textcolor{keywordtype}{int}\ sink)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{int}\ maxFlow\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00067}00067\ \ \ \ \ std::vector<int>\ parent(\mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}});}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//\ Repeat\ as\ long\ as\ there\ is\ a\ way}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_graph_a692d5e808eef1b5ec9db213a42b502e5}{bfs}}(source,\ sink,\ parent))\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pathFlow\ =\ INT\_MAX;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Let's\ determine\ the\ minimum\ residual\ capacity\ along\ the\ found\ path}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ =\ sink;\ v\ !=\ source;\ v\ =\ parent[v])\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ parent[v];}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ pathFlow\ =\ std::min(pathFlow,\ \mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}}[u][v]\ -\/\ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}}[u][v]);}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ streams\ along\ the\ path}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ =\ sink;\ v\ !=\ source;\ v\ =\ parent[v])\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ parent[v];}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}}[u][v]\ +=\ pathFlow;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}}[v][u]\ -\/=\ pathFlow;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ maxFlow\ +=\ pathFlow;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{return}\ maxFlow;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00097}\mbox{\hyperlink{class_graph_a6d48168857189afaadf1ebc6907693c3}{00097}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_graph_a6d48168857189afaadf1ebc6907693c3}{Graph::printGraphvizToFile}}(\textcolor{keyword}{const}\ std::string\&\ filename)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00098}00098\ \ \ \ \ std::ofstream\ out(filename);}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00099}00099\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}digraph\ G\ \{"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ u\ =\ 0;\ u\ <\ \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}};\ u++)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ =\ 0;\ v\ <\ \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}};\ v++)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}}[u][v]\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ u\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ "{}}\ <<\ v}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ [label=\(\backslash\)"{}Cap:\ "{}}\ <<\ \mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}}[u][v]}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ flow:\ "{}}\ <<\ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}}[u][v]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}];"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00109}00109\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00110}00110\ \ \ \ \ out.close();}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00119}\mbox{\hyperlink{func_8cpp_a69b6c1660bdc416cb20b66cbf2a8f998}{00119}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{func_8cpp_a69b6c1660bdc416cb20b66cbf2a8f998}{readGraphFromFile}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ \mbox{\hyperlink{class_graph}{Graph}}\&\ graph)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00120}00120\ \ \ \ \ std::ifstream\ infile(filename);}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{int}\ V,\ E;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00122}00122\ \ \ \ \ infile\ >>\ V\ >>\ E;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00123}00123\ \ \ \ \ graph\ =\ \mbox{\hyperlink{class_graph}{Graph}}(V);\ \ \textcolor{comment}{//\ Create\ a\ graph\ with\ the\ number\ of\ vertices\ V}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ E;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u,\ v,\ cap;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ infile\ >>\ u\ >>\ v\ >>\ cap;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ graph.\mbox{\hyperlink{class_graph_a8cdfb932968807565b3cc3b52759e3b8}{addEdge}}(u,\ v,\ cap);}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00138}\mbox{\hyperlink{func_8cpp_a2e1a7071c4ad71a02920386701c7e04f}{00138}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{func_8cpp_a2e1a7071c4ad71a02920386701c7e04f}{writeResultToFile}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ \textcolor{keywordtype}{int}\ maxFlow)\ \{}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00139}00139\ \ \ \ \ std::ofstream\ out(filename);}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00140}00140\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Максимальный поток: "{}}\ <<\ maxFlow\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00141}00141\ \ \ \ \ out.close();}
+\DoxyCodeLine{\Hypertarget{func_8cpp_source_l00142}00142\ \}}
+
+\end{DoxyCode}

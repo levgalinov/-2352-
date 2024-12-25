@@ -1,0 +1,34 @@
+\doxysection{Header.\+h}
+\hypertarget{_header_8h_source}{}\label{_header_8h_source}\mbox{\hyperlink{_header_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00017}\mbox{\hyperlink{class_graph}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_graph}{Graph}}\ \{}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00018}00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00019}\mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{00019}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}};\ \ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00020}\mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{00020}}\ \ \ \ \ std::vector<std::vector<int>>\ \mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}};\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00021}\mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{00021}}\ \ \ \ \ std::vector<std::vector<int>>\ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915}{Graph}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}});}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_graph_a8cdfb932968807565b3cc3b52759e3b8}{addEdge}}(\textcolor{keywordtype}{int}\ u,\ \textcolor{keywordtype}{int}\ v,\ \textcolor{keywordtype}{int}\ cap);}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_graph_a692d5e808eef1b5ec9db213a42b502e5}{bfs}}(\textcolor{keywordtype}{int}\ source,\ \textcolor{keywordtype}{int}\ sink,\ std::vector<int>\&\ parent);}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_graph_afd2749a1cd58db2d3b6fa6eef639399c}{edmondsKarp}}(\textcolor{keywordtype}{int}\ source,\ \textcolor{keywordtype}{int}\ sink);}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_graph_a6d48168857189afaadf1ebc6907693c3}{printGraphvizToFile}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00064}00064\ \};}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00072}00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_header_8h_a69b6c1660bdc416cb20b66cbf2a8f998}{readGraphFromFile}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ \mbox{\hyperlink{class_graph}{Graph}}\&\ graph);}
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_header_8h_source_l00080}00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_header_8h_a2e1a7071c4ad71a02920386701c7e04f}{writeResultToFile}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ \textcolor{keywordtype}{int}\ maxFlow);}
+
+\end{DoxyCode}

@@ -1,0 +1,41 @@
+\doxysection{Source.\+cpp}
+\hypertarget{_source_8cpp_source}{}\label{_source_8cpp_source}\mbox{\hyperlink{_source_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_header_8h}{Header.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00011}\mbox{\hyperlink{_source_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00011}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_source_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00012}00012\ \ \ \ \ setlocale(LC\_ALL,\ \textcolor{stringliteral}{"{}Russian"{}});}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ Checking\ the\ correctness\ of\ the\ number\ of\ arguments}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Usage:\ "{}}\ <<\ argv[0]\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00020}00020\ \ \ \ \ std::string\ inputFilename\ =\ \textcolor{stringliteral}{"{}input.txt"{}};\ \ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00021}00021\ \ \ \ \ std::string\ outputFilename\ =\ \textcolor{stringliteral}{"{}output.txt"{}};\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{int}\ source,\ sink;}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00024}00024\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}¬ведите исходную\ вершину:\ "{}};}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00025}00025\ \ \ \ \ std::cin\ >>\ source;}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00026}00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}¬ведите стоковую\ вершину:\ "{}};}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00027}00027\ \ \ \ \ std::cin\ >>\ sink;}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph}}\ graph(0);\ \ \textcolor{comment}{//\ Initialization\ of\ an\ empty\ graph}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{func_8cpp_a69b6c1660bdc416cb20b66cbf2a8f998}{readGraphFromFile}}(inputFilename,\ graph);\ \ \textcolor{comment}{//\ Loading\ a\ graph\ from\ a\ file}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ Finding\ the\ maximum\ flow}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{int}\ maxFlow\ =\ graph.\mbox{\hyperlink{class_graph_afd2749a1cd58db2d3b6fa6eef639399c}{edmondsKarp}}(source,\ sink);}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ Write\ the\ result\ to\ a\ file}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{func_8cpp_a2e1a7071c4ad71a02920386701c7e04f}{writeResultToFile}}(outputFilename,\ maxFlow);}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ Generate\ a\ Graphviz\ file\ to\ visualize\ the\ graph}}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00039}00039\ \ \ \ \ std::string\ outputDotFilename\ =\ \textcolor{stringliteral}{"{}max\_flow\_network.dot"{}};}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00040}00040\ \ \ \ \ graph.\mbox{\hyperlink{class_graph_a6d48168857189afaadf1ebc6907693c3}{printGraphvizToFile}}(outputDotFilename);}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_source_8cpp_source_l00043}00043\ \}}
+
+\end{DoxyCode}

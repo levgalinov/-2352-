@@ -1,0 +1,57 @@
+\doxysection{func.\+cpp File Reference}
+\hypertarget{func_8cpp}{}\label{func_8cpp}\index{func.cpp@{func.cpp}}
+{\ttfamily \#include "{}Header.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{func_8cpp_a69b6c1660bdc416cb20b66cbf2a8f998}{read\+Graph\+From\+File}} (const std\+::string \&filename, \mbox{\hyperlink{class_graph}{Graph}} \&graph)
+\begin{DoxyCompactList}\small\item\em Reading a graph from a file. Loads the number of vertices, edges, and edge capacities from a text file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{func_8cpp_a2e1a7071c4ad71a02920386701c7e04f}{write\+Result\+To\+File}} (const std\+::string \&filename, int max\+Flow)
+\begin{DoxyCompactList}\small\item\em Recording the maximum flow to a file. Writes the result of the algorithm (maximum flow) to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{func_8cpp_a69b6c1660bdc416cb20b66cbf2a8f998}\index{func.cpp@{func.cpp}!readGraphFromFile@{readGraphFromFile}}
+\index{readGraphFromFile@{readGraphFromFile}!func.cpp@{func.cpp}}
+\doxysubsubsection{\texorpdfstring{readGraphFromFile()}{readGraphFromFile()}}
+{\footnotesize\ttfamily \label{func_8cpp_a69b6c1660bdc416cb20b66cbf2a8f998} 
+void read\+Graph\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{graph}{}\end{DoxyParamCaption})}
+
+
+
+Reading a graph from a file. Loads the number of vertices, edges, and edge capacities from a text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file with the graph. \\
+\hline
+{\em graph} & The graph into which the information will be loaded. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{func_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{func_8cpp_source}{func.\+cpp}}.
+
+\Hypertarget{func_8cpp_a2e1a7071c4ad71a02920386701c7e04f}\index{func.cpp@{func.cpp}!writeResultToFile@{writeResultToFile}}
+\index{writeResultToFile@{writeResultToFile}!func.cpp@{func.cpp}}
+\doxysubsubsection{\texorpdfstring{writeResultToFile()}{writeResultToFile()}}
+{\footnotesize\ttfamily \label{func_8cpp_a2e1a7071c4ad71a02920386701c7e04f} 
+void write\+Result\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{int}]{max\+Flow}{}\end{DoxyParamCaption})}
+
+
+
+Recording the maximum flow to a file. Writes the result of the algorithm (maximum flow) to a file. 
+
+Write the result (maximum flow) to a file. Writes the result of the algorithm (maximum flow) to a file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to write to. \\
+\hline
+{\em max\+Flow} & Maximum flow. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{func_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{func_8cpp_source}{func.\+cpp}}.
+

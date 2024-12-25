@@ -1,0 +1,246 @@
+\doxysection{Graph Class Reference}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph@{Graph}}
+
+
+A class representing a directed graph for finding maximum flow using the Edmonds-\/\+Karp algorithm.  
+
+
+
+
+{\ttfamily \#include $<$Header.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915}{Graph}} (int \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}})
+\begin{DoxyCompactList}\small\item\em Constructor for initializing a graph with a given number of vertices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a8cdfb932968807565b3cc3b52759e3b8}{add\+Edge}} (int u, int v, int cap)
+\begin{DoxyCompactList}\small\item\em Adding an edge to a graph with a given capacity. Increases the capacity of the edge between vertices u and v by the given value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a692d5e808eef1b5ec9db213a42b502e5}{bfs}} (int source, int sink, std\+::vector$<$ int $>$ \&parent)
+\begin{DoxyCompactList}\small\item\em Pathfinding using BFS algorithm. Performs a breadth-\/first search to find a path from a source vertex to a sink vertex. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_afd2749a1cd58db2d3b6fa6eef639399c}{edmonds\+Karp}} (int source, int sink)
+\begin{DoxyCompactList}\small\item\em Edmonds-\/\+Karp algorithm for finding maximum flow. Implements the Edmonds-\/\+Karp algorithm, which is an implementation of the Ford-\/\+Fulkerson algorithm using BFS to find paths with residual capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a6d48168857189afaadf1ebc6907693c3}{print\+Graphviz\+To\+File}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Generate a graph representation in Graphviz format and write it to a file. Writes the graph to a .dot file that can be used for visualization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}{V}}
+\begin{DoxyCompactList}\small\item\em The number of vertices in the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_graph_a8a34b80e2f3749992e0e9b83de742fba}{capacity}}
+\begin{DoxyCompactList}\small\item\em Capacities of edges between vertices. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}{flow}}
+\begin{DoxyCompactList}\small\item\em Current flows of edges between vertices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class representing a directed graph for finding maximum flow using the Edmonds-\/\+Karp algorithm. 
+
+This class implements a graph structure with capacity and flow matrices, as well as the Edmonds-\/\+Karp algorithm for finding maximum flow in the network. The graph is directed, and for each edge the capacity and flow are stored. 
+
+Definition at line \mbox{\hyperlink{_header_8h_source_l00017}{17}} of file \mbox{\hyperlink{_header_8h_source}{Header.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily \label{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915} 
+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{int}]{V}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for initializing a graph with a given number of vertices. 
+
+Constructor for initializing a graph with a given number of vertices. Initializes capacity and flow matrices to store data about the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & The number of vertices in the graph.\\
+\hline
+{\em V} & Number of vertices. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{func_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{func_8cpp_source}{func.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_a8cdfb932968807565b3cc3b52759e3b8}\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \label{class_graph_a8cdfb932968807565b3cc3b52759e3b8} 
+void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{u}{, }\item[{int}]{v}{, }\item[{int}]{cap}{}\end{DoxyParamCaption})}
+
+
+
+Adding an edge to a graph with a given capacity. Increases the capacity of the edge between vertices u and v by the given value. 
+
+Adding an edge with capacity to a graph. Increases the capacity of the edge between vertices u and v.
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Initial peak. \\
+\hline
+{\em v} & The final peak. \\
+\hline
+{\em cap} & Rib capacity. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{func_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{func_8cpp_source}{func.\+cpp}}.
+
+\Hypertarget{class_graph_a692d5e808eef1b5ec9db213a42b502e5}\index{Graph@{Graph}!bfs@{bfs}}
+\index{bfs@{bfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}}
+{\footnotesize\ttfamily \label{class_graph_a692d5e808eef1b5ec9db213a42b502e5} 
+bool Graph\+::bfs (\begin{DoxyParamCaption}\item[{int}]{source}{, }\item[{int}]{sink}{, }\item[{std\+::vector$<$ int $>$ \&}]{parent}{}\end{DoxyParamCaption})}
+
+
+
+Pathfinding using BFS algorithm. Performs a breadth-\/first search to find a path from a source vertex to a sink vertex. 
+
+Implementation of pathfinding in a graph using the BFS algorithm. Performs a breadth-\/first search to find a path with residual capacity between vertices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Initial vertex. \\
+\hline
+{\em sink} & Stock top. \\
+\hline
+{\em parent} & Vector for storing the path (predecessors). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if the path is found, otherwise false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Initial peak. \\
+\hline
+{\em sink} & Stock peak. \\
+\hline
+{\em parent} & Vector for storing predecessors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if path found, otherwise false. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{func_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{func_8cpp_source}{func.\+cpp}}.
+
+\Hypertarget{class_graph_afd2749a1cd58db2d3b6fa6eef639399c}\index{Graph@{Graph}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
+{\footnotesize\ttfamily \label{class_graph_afd2749a1cd58db2d3b6fa6eef639399c} 
+int Graph\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{int}]{source}{, }\item[{int}]{sink}{}\end{DoxyParamCaption})}
+
+
+
+Edmonds-\/\+Karp algorithm for finding maximum flow. Implements the Edmonds-\/\+Karp algorithm, which is an implementation of the Ford-\/\+Fulkerson algorithm using BFS to find paths with residual capacity. 
+
+Edmonds-\/\+Karp algorithm for finding the maximum flow. Uses BFS to find improved paths and updates flows along the found paths.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Initial vertex. \\
+\hline
+{\em sink} & Stock top. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Maximum flow in the graph.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Initial peak. \\
+\hline
+{\em sink} & Stock peak. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Maximum flow through a graph. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{func_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{func_8cpp_source}{func.\+cpp}}.
+
+\Hypertarget{class_graph_a6d48168857189afaadf1ebc6907693c3}\index{Graph@{Graph}!printGraphvizToFile@{printGraphvizToFile}}
+\index{printGraphvizToFile@{printGraphvizToFile}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{printGraphvizToFile()}{printGraphvizToFile()}}
+{\footnotesize\ttfamily \label{class_graph_a6d48168857189afaadf1ebc6907693c3} 
+void Graph\+::print\+Graphviz\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Generate a graph representation in Graphviz format and write it to a file. Writes the graph to a .dot file that can be used for visualization. 
+
+Output graph in Graphviz format. Writes the graph to a .dot file that can be used for visualization.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File name to save the graph in .dot format.\\
+\hline
+{\em filename} & The name of the file to write to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{func_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{func_8cpp_source}{func.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_graph_a8a34b80e2f3749992e0e9b83de742fba}\index{Graph@{Graph}!capacity@{capacity}}
+\index{capacity@{capacity}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{capacity}{capacity}}
+{\footnotesize\ttfamily \label{class_graph_a8a34b80e2f3749992e0e9b83de742fba} 
+std\+::vector$<$std\+::vector$<$int$>$ $>$ Graph\+::capacity}
+
+
+
+Capacities of edges between vertices. 
+
+
+
+Definition at line \mbox{\hyperlink{_header_8h_source_l00020}{20}} of file \mbox{\hyperlink{_header_8h_source}{Header.\+h}}.
+
+\Hypertarget{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9}\index{Graph@{Graph}!flow@{flow}}
+\index{flow@{flow}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{flow}{flow}}
+{\footnotesize\ttfamily \label{class_graph_a40adeb03bf96c5b4a82dfd25d5f39fd9} 
+std\+::vector$<$std\+::vector$<$int$>$ $>$ Graph\+::flow}
+
+
+
+Current flows of edges between vertices. 
+
+
+
+Definition at line \mbox{\hyperlink{_header_8h_source_l00021}{21}} of file \mbox{\hyperlink{_header_8h_source}{Header.\+h}}.
+
+\Hypertarget{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc}\index{Graph@{Graph}!V@{V}}
+\index{V@{V}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily \label{class_graph_a2b722f7cfa7a21e4cb5fae488b3d4dcc} 
+int Graph\+::V}
+
+
+
+The number of vertices in the graph. 
+
+
+
+Definition at line \mbox{\hyperlink{_header_8h_source_l00019}{19}} of file \mbox{\hyperlink{_header_8h_source}{Header.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_header_8h}{Header.\+h}}\item 
+\mbox{\hyperlink{func_8cpp}{func.\+cpp}}\end{DoxyCompactItemize}
